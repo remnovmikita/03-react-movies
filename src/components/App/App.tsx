@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Loader from "./components/Loader/Loader";
-import HeaderForm from "./components/SearchBar/SearchBar";
-import { getFilms } from "./services/movieService";
-import type { Movie } from "./types/movie";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import MovieGrid from "./components/MovieGrid/MovieGrid";
+import Loader from "../Loader/Loader";
+import HeaderForm from "../SearchBar/SearchBar";
+import { getFilms } from "../../services/movieService";
+import type { Movie } from "../../types/movie";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import MovieGrid from "../MovieGrid/MovieGrid";
 import toast from "react-hot-toast";
-import MovieModal from "./components/MovieModal/MovieModal";
+import MovieModal from "../MovieModal/MovieModal";
 
 export default function App() {
   const [isLoader, setIsLoader] = useState(false);
