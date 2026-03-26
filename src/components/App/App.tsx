@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Loader from "../Loader/Loader";
-import HeaderForm from "../SearchBar/SearchBar";
-import { getFilms } from "../../services/movieService";
+import SearchBar from "../SearchBar/SearchBar";
+import { getMovies } from "../../services/movieService";
 import type { Movie } from "../../types/movie";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import MovieGrid from "../MovieGrid/MovieGrid";
@@ -18,7 +18,7 @@ export default function App() {
     try {
       setIsLoader(true);
       setIsError(false);
-      const newArrFilms = await getFilms(searchFilms);
+      const newArrFilms = await getMovies(searchFilms);
       if (newArrFilms.length === 0) {
         toast.error("No movies found for your request.");
       }
@@ -33,13 +33,13 @@ export default function App() {
 
   return (
     <>
-      <HeaderForm onSearch={fetchArrFilms} />
+      <SearchBar onSubmit={fetchArrFilms} />
       {isLoader && <Loader />}
       {isError && <ErrorMessage />}
       {arrFilms.length > 0 && (
         <MovieGrid
-          films={arrFilms}
-          onSelectMovie={(movie) => setSelectedMovie(movie)}
+          movie={arrFilms}
+          onSelect={(movie) => setSelectedMovie(movie)}
         />
       )}
       {selectedMovie && (
