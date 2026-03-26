@@ -22,6 +22,8 @@ export default function App() {
       if (newArrFilms.length === 0) {
         toast.error("No movies found for your request.");
       }
+      console.log(import.meta.env.VITE_TMDB_TOKEN);
+
       setArrFilms(newArrFilms);
     } catch {
       setIsError(true);
