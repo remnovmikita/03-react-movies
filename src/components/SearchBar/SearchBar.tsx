@@ -1,11 +1,11 @@
 import toast , { Toaster } from "react-hot-toast";
 import styles from "./SearchBar.module.css"
 
-interface searchBatProps{
+interface searchBarProps{
     onSubmit:(query:string)=>void
 }
 
-export default function SearchBar({onSubmit}:searchBatProps){
+export default function SearchBar({onSubmit}:searchBarProps){
     const handleSubmit = (formData:FormData)=>{
         const query = formData.get("query") as string
         if(query === ""){

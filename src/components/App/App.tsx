@@ -38,7 +38,7 @@ export default function App() {
       {isError && <ErrorMessage />}
       {arrFilms.length > 0 && (
         <MovieGrid
-          movie={arrFilms}
+          movies={arrFilms}
           onSelect={(movie) => setSelectedMovie(movie)}
         />
       )}
